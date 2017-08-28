@@ -24,12 +24,8 @@ module TileUp
       @filename_prefix = @options.filename_prefix
       @logger = ConsoleLogger.new(:info, {verbose: @options.verbose})
 
-      begin
-        @image = Magick::Image::read(image_filename).first
-      rescue Magick::ImageMagickError => e
-        @logger.error "Could not open image #{image_filename}."
-        exit
-      end
+      # just let it fails for now.
+      @image = Magick::Image::read(image_filename).first
 
       if @options.auto_zoom_levels && @options.auto_zoom_levels > 20
         @logger.warn "Warning: auto zoom levels hard limited to 20."
