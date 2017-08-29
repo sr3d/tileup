@@ -143,7 +143,7 @@ module TileUp
         end
 
         @logger.verbose "Saving tile: #{c[:column]}, #{c[:row]}..."
-        ci.write("#{filename_prefix}_#{c[:column]}_#{c[:row]}.#{@extension}")
+        ci.write("#{filename_prefix}_#{c[:column]}_#{c[:row]}.#{@extension}") { self.quality = 85 }
         @logger.verbose "Saving tile: #{c[:column]}, #{c[:row]}... saved"
 
         ci = nil
